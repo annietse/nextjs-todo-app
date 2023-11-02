@@ -1,6 +1,5 @@
 "use client";
 
-import { CreatePost } from "~/app/_components/create-post";
 import { Header } from "./_components/Header";
 import { api } from "~/trpc/react";
 import type { Todo } from "@prisma/client";
@@ -15,7 +14,9 @@ export default function Home() {
     <div className="">
       <Header></Header>
       {data?.map((todo) => {
-        return <Todo todo={todo} authenticated={!!session.data?.user} />;
+        return <Todo 
+      key={todo.id}
+        todo={todo} authenticated={!!session.data?.user} />;
       })}
     </div>
   );
@@ -37,7 +38,6 @@ const Todo = (props: { todo: Todo; authenticated: boolean }) => {
 
   return (
     <div
-      key={props.todo.id}
       className="flex flex-row justify-between border-b border-slate-400 p-2"
     >
       <div>

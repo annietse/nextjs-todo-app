@@ -29,7 +29,7 @@ export const Header = () => {
       <button onClick={() => signOut()}>
         <img
           className="rounded-full"
-          src={session?.user.image!}
+          src={session.user.image!}
           alt=""
           height={32}
           width={32}
